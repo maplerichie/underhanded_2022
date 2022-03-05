@@ -1,0 +1,19 @@
+# Charity NFT sale 2022
+
+## Exploit
+
+Unit price: 1 ETH
+Bulk discount quantity: 2
+Bulk discount amount: 0.1 ETH
+
+Bulk discount formula:
+Total amount = Purchase quantity * ( Unit Price - (( Purchase quantity / Bulk discount quantity) * Bulk discount amount))
+
+From above setting, attacker can purchase 20-21 NFTs for FREE!
+Above 22 & above will trigger error as unsigned integer doesn't allow negative value.
+
+## Prevent
+
+1. Make sure the discounted amount doesn't go below unit price
+2. Set purchase limit accordingly
+3. Require msg.value not zero or certain amount
